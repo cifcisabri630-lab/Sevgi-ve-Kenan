@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ayşe ve Sabri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Parisienne&display=swap" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #fff8e7, #ffe0b2);
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 4.5em;
+      color: #8b0000;
+      margin-top: 60px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 1.6em;
+      color: #333;
+      margin-top: -10px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .subtitle::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, #ff7f7f, #ffd27f);
+      border-radius: 2px;
+      box-shadow: 0 0 8px rgba(255,150,150,0.7);
+    }
+
+    /* Kalp ve yazı */
+    .heart-container {
+      margin-top: 80px;
+    }
+
+    .heart-text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3em;
+      color: #555;
+      margin-bottom: 15px;
+      display: block;
+      font-weight: 500;
+    }
+
+    .heart {
+      font-size: 6em;
+      color: #ff3366;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      animation: pulse 1.5s infinite;
+      text-shadow: 0 0 20px rgba(255,51,102,0.5);
+      display: inline-block;
+    }
+
+    .heart:hover {
+      transform: scale(1.2);
+      filter: brightness(1.3);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    #message {
+      display: none;
+      margin-top: 200px;
+      font-size: 2em;
+      color: #4b0082;
+      font-weight: bold;
+      animation: fadeIn 2s ease;
+      padding: 25px;
+      background: rgba(255,255,255,0.95);
+      width: 65%;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Arka plan süsleme */
+    .floating {
+      position: absolute;
+      bottom: -50px;
+      font-size: 2.5em;
+      color: rgba(255, 51, 102, 0.6);
+      animation: floatUp 8s infinite ease-in;
+      text-shadow: 0 0 15px rgba(255, 51, 102, 0.6);
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="main">
+    <h1>Ayşe ve Sabri</h1>
+    <div class="subtitle">Nişan merasimine hoş geldiniz</div>
+
+    <div class="heart-container">
+      <span class="heart-text">Bugün sizin için ayrılan güzel ayet, hadis ve söz için buraya tıklayınız.</span>
+      <div class="heart" onclick="showMessage()">❤️</div>
+    </div>
+  </div>
+
+  <div id="message"></div>
+
+  <!-- Arka plan süslemeleri -->
+  <div class="floating" style="left:10%;">❤️</div>
+  <div class="floating" style="left:25%; animation-delay: 2s;">💖</div>
+  <div class="floating" style="left:50%; animation-delay: 4s;">💕</div>
+  <div class="floating" style="left:70%; animation-delay: 1s;">💘</div>
+  <div class="floating" style="left:85%; animation-delay: 3s;">💓</div>
+
+  <script>
+    const messages = [
+      "Allah sabredenlerle beraberdir. (Bakara 153)",
+      "Kolaylaştırınız, zorlaştırmayınız. (Hadis-i Şerif)",
+      "Sevgi emektir. (Anonim)",
+      "Hiçbir iyiliği küçük görme. (Hadis)",
+      "Güzel söz sadakadır. (Hadis)",
+      "Birbirini Allah için sevenler, kıyamet gününde Arş’ın gölgesindedir."
+    ];
+
+    function showMessage() {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      document.getElementById("message").innerText = messages[randomIndex];
+
+      // Başlık ve kalbi gizle
+      document.getElementById("main").style.display = "none";
+
+      // Mesajı göster
+      document.getElementById("message").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
+
+
